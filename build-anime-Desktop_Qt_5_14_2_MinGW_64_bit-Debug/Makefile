@@ -248,6 +248,7 @@ Makefile: ../anime/anime.pro ../../../Qt/Qt5.14.2/5.14.2/mingw73_64/mkspecs/win3
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_64/mkspecs/features/qt_config.prf \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_64/mkspecs/win32-g++/qmake.conf \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_64/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_64/mkspecs/features/exclusive_builds.prf \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_64/mkspecs/features/toolchain.prf \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_64/mkspecs/features/default_pre.prf \
@@ -278,9 +279,9 @@ Makefile: ../anime/anime.pro ../../../Qt/Qt5.14.2/5.14.2/mingw73_64/mkspecs/win3
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_64/lib/Qt5Network.prl \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_64/lib/Qt5Core.prl \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_64/lib/qtmain.prl \
-		.qmake.stash \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_64/mkspecs/features/build_pass.prf \
-		../anime/qml.qrc
+		../anime/qml.qrc \
+		../anime/res.qrc
 	$(QMAKE) -o Makefile ..\anime\anime.pro -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug"
 ../../../Qt/Qt5.14.2/5.14.2/mingw73_64/mkspecs/features/spec_pre.prf:
 ../../../Qt/Qt5.14.2/5.14.2/mingw73_64/mkspecs/qdevice.pri:
@@ -460,6 +461,7 @@ Makefile: ../anime/anime.pro ../../../Qt/Qt5.14.2/5.14.2/mingw73_64/mkspecs/win3
 ../../../Qt/Qt5.14.2/5.14.2/mingw73_64/mkspecs/features/qt_config.prf:
 ../../../Qt/Qt5.14.2/5.14.2/mingw73_64/mkspecs/win32-g++/qmake.conf:
 ../../../Qt/Qt5.14.2/5.14.2/mingw73_64/mkspecs/features/spec_post.prf:
+.qmake.stash:
 ../../../Qt/Qt5.14.2/5.14.2/mingw73_64/mkspecs/features/exclusive_builds.prf:
 ../../../Qt/Qt5.14.2/5.14.2/mingw73_64/mkspecs/features/toolchain.prf:
 ../../../Qt/Qt5.14.2/5.14.2/mingw73_64/mkspecs/features/default_pre.prf:
@@ -490,9 +492,9 @@ Makefile: ../anime/anime.pro ../../../Qt/Qt5.14.2/5.14.2/mingw73_64/mkspecs/win3
 ../../../Qt/Qt5.14.2/5.14.2/mingw73_64/lib/Qt5Network.prl:
 ../../../Qt/Qt5.14.2/5.14.2/mingw73_64/lib/Qt5Core.prl:
 ../../../Qt/Qt5.14.2/5.14.2/mingw73_64/lib/qtmain.prl:
-.qmake.stash:
 ../../../Qt/Qt5.14.2/5.14.2/mingw73_64/mkspecs/features/build_pass.prf:
 ../anime/qml.qrc:
+../anime/res.qrc:
 qmake: FORCE
 	@$(QMAKE) -o Makefile ..\anime\anime.pro -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug"
 

@@ -28,6 +28,7 @@ MouseArea{
     onClicked: {
 
                     circle.x += 10
+                    checkCollision()
                 }
 
 }
@@ -42,6 +43,11 @@ Rectangle{
      color:  "red"
      radius: 32
 
+     Behavior on x {
+                    NumberAnimation { duration: 300 }
+                   }
+
+
  }
 
 Rectangle{
@@ -54,6 +60,7 @@ Rectangle{
          anchors.fill: parent
          onClicked: {
                         circle.x -= 10
+
                     }
 
       }
@@ -62,5 +69,14 @@ Rectangle{
 
 }
 
+function checkCollision() {
+        if (circle.x >= rec2.x - 65) {
+            circle.x -= 80;
+        }
+    }
+
 }
+
+
+
 
