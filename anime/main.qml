@@ -1,3 +1,5 @@
+
+
 import QtQuick 2.12
 import QtQuick.Window 2.12
 import QtQuick.Controls 2.12 // Добавляем модуль для кнопок
@@ -13,22 +15,32 @@ Window {
 
 
 
-Row{
-     anchors.centerIn: parent
-     spacing: 80
+Rectangle{
+     id: scene
+     anchors.fill: parent
+     color: "lightblue"
+     state:otherPosition
 
 Rectangle{
      id: rec1
+     x: 25
+     y: 150
      width: 64
      height: 64
      color:  "blue"
+
 
 MouseArea{
     anchors.fill: parent
     onClicked: {
 
                     circle.x += 10
-                    checkCollision()
+                    if(circle.x >= rec2.x)
+                    {
+                       state: startPosition
+                    }
+
+
                 }
 
 }
@@ -36,22 +48,20 @@ MouseArea{
 }
 Rectangle{
      id: circle
-     x: circleX
-     y: circleY
+     x: rec1.x + 135
+     y: rec1.y
      width: 64
      height: 64
      color:  "red"
      radius: 32
-
-     Behavior on x {
-                    NumberAnimation { duration: 300 }
-                   }
 
 
  }
 
 Rectangle{
      id: rec2
+     x: 300
+     y: 150
      width: 64
      height: 64
      color:  "yellow"
@@ -61,22 +71,58 @@ Rectangle{
          onClicked: {
                         circle.x -= 10
 
+
                     }
 
+          }
+
+
+     }
+
+
+states:[
+
+    State{
+
+      name: "startPosition"
+      PropertyChanges{
+      target: circle
+      x: rec1.x + 135
       }
+    },
 
- }
+    State{
 
-}
-
-function checkCollision() {
-        if (circle.x >= rec2.x - 65) {
-            circle.x -= 80;
-        }
+      name: "otherPosition"
+      PropertyChanges{
+      target: circle
+      x: circle.x
+      }
     }
 
-}
 
+]
+
+transitions: [
+    Transition {
+        from: "otherPosition"
+        to: "startPosition"
+
+        NumberAnimation{
+            properties: "x"
+            duration: 1000
+            easing.type: Easing.OutBounce
+        }
+
+    }
+
+
+]
+
+  }
+
+
+}
 
 
 
