@@ -19,7 +19,7 @@ Rectangle{
      id: scene
      anchors.fill: parent
      color: "lightblue"
-     state:otherPosition
+
 
 Rectangle{
      id: rec1
@@ -70,7 +70,9 @@ Rectangle{
          anchors.fill: parent
          onClicked: {
                         circle.x -= 10
-
+             if (circle.x <= rec1.x + 135) {
+                                     scene.state = "otherPosition";
+                                 }
 
                     }
 
@@ -114,6 +116,18 @@ transitions: [
             easing.type: Easing.OutBounce
         }
 
+    },
+
+    Transition {
+        from: "startPosition"
+        to: "otherPosition"
+
+        NumberAnimation{
+            properties: "x"
+            duration: 1000
+            easing.type: Easing.OutBounce
+        }
+
     }
 
 
@@ -123,6 +137,7 @@ transitions: [
 
 
 }
+
 
 
 
