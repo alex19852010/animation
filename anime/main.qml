@@ -37,7 +37,7 @@ MouseArea{
                     circle.x += 10
                     if(circle.x >= rec2.x)
                     {
-                       state: startPosition
+                       state: "startPosition"
                     }
 
 
